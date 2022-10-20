@@ -2,8 +2,7 @@
   "url-backend": "127.0.0.1",
   "port": 8888,
 
-  "data-db-connection": "mongodb+srv://usuario-grupo25:grupo25@cluster0.gef1fjp.mongodb.net/?retryWrites=true&w=majority",
+  "data-db-connection": "url de conexión",
   "name-db": "bd-registro-academico"
-
 
 }
