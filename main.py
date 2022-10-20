@@ -37,11 +37,19 @@ def crearEstudiante():
     else:
         return {"resultado": "Error al crear el Estudiante!"}
 
-@app.route("/estudiante/<string:cedula>", methods=['GET'])
-def buscarEstudiante(cedula):
-    result = controladorEstudiante.buscarEstudiante(cedula)
+@app.route("/estudiante/<string:idObject>", methods=['GET'])
+def buscarEstudiante(idObject):
+    result = controladorEstudiante.buscarEstudiante(idObject)
     if result is None:
         return {"resultado": "No se encuentra el Estudiante en base de datos!"}
+    else:
+        return jsonify(result)
+
+@app.route("/estudiante", methods=['GET'])
+def buscarTodosLosEstudiantes():
+    result = controladorEstudiante.buscarTodosLosEstudiantes()
+    if not result:
+        return {"resultado": "No se encuentran items en la base de datos!"}
     else:
         return jsonify(result)
 
@@ -55,11 +63,9 @@ def actualizarEstudiante():
     else:
         return {"resultado": "Error al actualizar el Estudiante!"}
 
-@app.route("/estudiante", methods=['DELETE'])
-def eliminarEstudiante():
-    requestBody = request.get_json()
-    print("Request body: ", requestBody)
-    result = controladorEstudiante.eliminarEstudiante(requestBody)
+@app.route("/estudiante/<string:idObject>", methods=['DELETE'])
+def eliminarEstudiante(idObject):
+    result = controladorEstudiante.eliminarEstudiante(idObject)
     if result:
         return {"resultado": "Estudiante eliminado!"}
     else:
