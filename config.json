@@ -1,4 +1,8 @@
 {
   "url-backend": "127.0.0.1",
-  "port": 8888
+  "port": 8888,
+
+  "data-db-connection": "url de conexión",
+  "name-db": "bd-registro-academico"
+
 }
